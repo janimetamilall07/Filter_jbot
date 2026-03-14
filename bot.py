@@ -1,3 +1,11 @@
+import asyncio
+
+try:
+    asyncio.get_running_loop()
+except RuntimeError:
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
 import logging
 import logging.config
 
@@ -18,7 +26,8 @@ from pyrogram import types
 from aiohttp import web
 from plugins import web_server
 
-PORT = "8080"
+import os
+PORT = int(os.environ.get("PORT", 8080))
 
 class Bot(Client):
 
