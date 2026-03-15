@@ -9,4 +9,3 @@ bs4
 imdbpy==2021.4.18
 aiohttp
 setuptools
-python-3.10.13
